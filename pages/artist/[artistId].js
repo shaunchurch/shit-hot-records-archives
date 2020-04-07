@@ -72,6 +72,7 @@ const Band = ({ songs, band }) => {
                 <a href={fileUrl} className="songname">
                   {song.name}
                 </a>
+                <small>{song.history}</small>
 
                 <br />
                 <audio className="player" controls src={fileUrl} />
