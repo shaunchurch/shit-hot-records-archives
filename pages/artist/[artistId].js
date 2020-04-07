@@ -68,11 +68,12 @@ const Band = ({ songs, band }) => {
             const fileUrl = `${bucket}artists/${currentBand.id}/${song.id}_hifi.mp3`;
             return (
               <li className="song">
-                <audio className="player" controls src={fileUrl} />
-                <span className="songname">{song.name}</span>{" "}
-                <a className="download-link" href={fileUrl}>
-                  download
+                <a href={fileUrl} className="songname">
+                  {song.name}
                 </a>
+
+                <br />
+                <audio className="player" controls src={fileUrl} />
               </li>
             );
           })}
@@ -87,8 +88,8 @@ const Band = ({ songs, band }) => {
           padding: 0;
         }
         .song {
-          display: flex;
-          margin-bottom: 5px;
+          flex-direction: flex-col;
+          margin-bottom: 15px;
           align-items: center;
         }
         .songname {
