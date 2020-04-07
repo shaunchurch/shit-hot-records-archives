@@ -29,6 +29,10 @@ const Home = ({ bands }) => {
       </Head>
 
       <main>
+        <a href="/">
+          <img src="/shrlogo.png" alt="Shit Hot Records" />
+        </a>
+        est. 2005
         <h1>Shit Hot Records Historical Archives</h1>
         <ul>
           {bands.map((band) => (

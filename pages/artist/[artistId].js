@@ -47,21 +47,32 @@ const Band = ({ songs, band }) => {
   return (
     <div className="container">
       <Head>
-        <title>Shit Hot Records Historical Archives</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{currentBand.name} | Shit Hot Records Historical Archives</title>
       </Head>
 
       <main>
+        <a href="/">
+          <img src="/shrlogo.png" alt="Shit Hot Records" />
+        </a>
+        est. 2005
         <h1>Shit Hot Records Historical Archives</h1>
-        <h2>{currentBand.name}</h2>
-        <ul>
+        <h2>
+          {currentBand.name} ({currentBand.members})
+        </h2>
+        <p></p>
+        <p>{currentBand.story}</p>
+        {currentBand.influene && <p>Inspiration: {currentBand.influence}</p>}
+        {currentBand.soundslike && <p>Sounds like: {currentBand.soundslike}</p>}
+        <ul className="songlist">
           {songs.map((song) => {
             const fileUrl = `${bucket}artists/${currentBand.id}/${song.id}_hifi.mp3`;
             return (
-              <li>
-                <a href={fileUrl}>{song.name}</a>
-                <br />
-                <audio controls src={fileUrl} />
+              <li className="song">
+                <audio className="player" controls src={fileUrl} />
+                <span className="songname">{song.name}</span>{" "}
+                <a className="download-link" href={fileUrl}>
+                  download
+                </a>
               </li>
             );
           })}
@@ -69,7 +80,28 @@ const Band = ({ songs, band }) => {
       </main>
 
       <footer></footer>
-
+      <style jsx>{`
+        .songlist {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .song {
+          display: flex;
+          margin-bottom: 5px;
+          align-items: center;
+        }
+        .songname {
+          font-weight: bold;
+          margin-right: 10px;
+        }
+        .player {
+          margin-right: 10px;
+        }
+        .download-link {
+          font-size: 12px;
+        }
+      `}</style>
       <style jsx global>{`
         html,
         body {
