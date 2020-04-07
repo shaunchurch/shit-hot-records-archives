@@ -61,7 +61,7 @@ const Band = ({ songs, band }) => {
         </h2>
         <p></p>
         <p>{currentBand.story}</p>
-        {currentBand.influene && <p>Inspiration: {currentBand.influence}</p>}
+        {currentBand.influence && <p>Inspiration: {currentBand.influence}</p>}
         {currentBand.soundslike && <p>Sounds like: {currentBand.soundslike}</p>}
         <ul className="songlist">
           {songs.map((song) => {
