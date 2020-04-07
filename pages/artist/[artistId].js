@@ -48,6 +48,7 @@ const Band = ({ songs, band }) => {
     <div className="container">
       <Head>
         <title>{currentBand.name} | Shit Hot Records Historical Archives</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <main>

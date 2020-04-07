@@ -25,7 +25,7 @@ const Home = ({ bands }) => {
     <div className="container">
       <Head>
         <title>Shit Hot Records Historical Archives</title>
-        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
       <main>
@@ -34,9 +34,9 @@ const Home = ({ bands }) => {
         </a>
         est. 2005
         <h1>Shit Hot Records Historical Archives</h1>
-        <ul>
+        <ul className="bandlist">
           {bands.map((band) => (
-            <li>
+            <li className="band">
               <a href={`/artist/${band.id}`}>{band.name}</a>
             </li>
           ))}
@@ -45,6 +45,17 @@ const Home = ({ bands }) => {
 
       <footer></footer>
 
+      <style jsx>{`
+        .bandlist {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .band {
+          margin-bottom: 10px;
+          font-size: 22px;
+        }
+      `}</style>
       <style jsx global>{`
         html,
         body {
